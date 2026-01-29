@@ -1,0 +1,26 @@
+**TO:** Board of Directors, Kazakhtelecom JSC
+**FROM:** External Product Transformation Auditor
+**DATE:** 2026-01-29
+**SUBJECT:** Diagnostic of Product Operating Model Maturity
+
+**1. EXECUTIVE SUMMARY**
+Based on the 2024 Integrated Annual Report, Kazakhtelecom exhibits the classic characteristics of a "Digital Immigrant" attempting transformation. While the "JRun" strategy employs customer-centric rhetoric (e.g., "Obsession with the client"), the underlying execution model remains rooted in a traditional "Project-to-Asset" IT mindset rather than a true Product Operating Model. The organization operates primarily as a **Feature Factory**, optimizing for industrial outputs (e.g., number of routers replaced) rather than empowering missionary teams to solve business problems through continuous product innovation.
+
+**2. EVIDENCE OF "FEATURE FACTORY" BEHAVIOR (RISKS)**
+*   **Focus on Outputs over Outcomes:** The 2024 Focus Map (p. 27) explicitly defines success by volume of delivery rather than value created. For example, the **"Sapa+ Project"** success metric is listed as *"223,493 routers installed"* and the **"Tazartu Project"** as *"70,028 planned migrations."*
+    *   *Risk:* This incentivizes teams to "ship hardware" rather than "improve internet experience." Replacing a router is an output; a consistently stable video call is an outcome. Teams celebrating the number of installations may miss the actual customer problem of connectivity reliability.
+*   **Project-Based Funding & Execution:** The Annual Report states, *"The JRun Roadmap is a set of strategic business initiatives that ensure the project-based execution of the Company’s corporate strategy"* (p. 25). Furthermore, innovation is funded via a *"Capital Investment Budget"* (p. 43) rather than continuous product funding.
+    *   *Risk:* "Project-based execution" disrupts continuity. Teams are assembled for a project and disbanded upon its completion, preventing long-term stewardship and the accumulation of deep product knowledge essential for innovation.
+*   **Mercenary "Requirements" Culture:** The structure separates the *"Retail Business Division"* (The Business) from the *"Information Technology Division"* (The Builders) (p. 17). The report references *"delivering requirements"* and adhering to *"technical specifications"* (p. 47) rather than collaborative discovery.
+    *   *Risk:* This separation creates a "Mercenary" culture where IT functions as a back-office order taker, disconnected from the actual business strategy and customer context.
+
+**3. STRATEGIC DISCONNECTS**
+There is a fundamental disconnect between the stated strategy and the operational reality.
+*   **Rhetoric vs. Reality:** The "JRun" strategy claims a goal to *"Become No.1 Operator by customer experience"* (p. 23). However, the "Corporate Values" section (p. 29) defines *"Responsibility"* as *"Savings through rational approach in planning."* Prioritizing cost-savings in planning often directly conflicts with the experimentation and redundancy required to deliver a superior customer experience.
+*   **Transformation as a "Program":** Treating "Digital Transformation" as a *programme* (p. 25) implies it has a finish line. In a true Digital Native company, transformation is a continuous state of operating, not a temporary initiative.
+
+**4. THE PRESCRIPTION**
+To shift from a Project-based management style to a Product-based one, Kazakhtelecom must:
+*   **Shift from Projects to Products:** Abolish "Project-based execution" for digital services (e.g., TV+, Telecom.kz app). Instead of funding temporary projects, establish durable **Product Teams** funded annually to drive specific business outcomes (e.g., "Increase Retention by 5%"), giving them the autonomy to decide *how* to achieve it.
+*   **Empower "Missionaries":** Dismantle the silo between the "Retail Business Division" and the "IT Division."Move engineers, designers, and product managers into integrated cross-functional teams aligned to customer journeys (e.g., "Onboarding Team," "Smart Home Team"). Stop handing requirements to IT; bring IT into the problem-solving process.
+*   **Measure Outcomes, Not Outputs:** Replace output-based KPIs like "Number of Routers Installed" with outcome-based success metrics such as "Reduction in WiFi-related Customer Support Tickets" or "Increase in Peak-Time Connection Stability." Hold teams accountable for the *result* (Happy Customer), not the *activity* (Installing Router).

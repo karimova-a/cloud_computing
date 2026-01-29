@@ -1,0 +1,23 @@
+JTBD Interview Transcript: Procurement Officer at Kazakhtelecom
+Date: 2026-01-29
+Interviewer: Product Manager (User)
+Interviewee: Agent (Procurement Specialist)
+
+Q1: Why does each equipment request take 4-8 hours?
+A1: Because for every single line item, I have to manually log into distinct vendor portals (Huawei, ZTE, Nokia), search their catalogs, download PDF spec sheets, and line-by-line verify technical specifications (like breakdown voltage) against the engineering request. It is a manual cross-referencing nightmare.
+
+Q2: Why do you check catalogs manually?
+A2: Because there is no integrated system. Vendors provide static Excel price lists or PDF manuals, and there is no central API or search tool. SAP only handles the final purchase order, not the research. I have no choice but to manually purely "Ctrl+F" through documents.
+
+Q3: Why do specification mismatches happen?
+A3: Because engineers use vague or slang terms (e.g., "Optical Transceiver 10km") while vendors have precise, varying part numbers. I lack the deep technical knowledge to interpret the nuance (e.g., wavelength compatibility), so I have to guess. If I guess wrong based on the vague description, the wrong part is delivered.
+
+Q4: Why is the approval process 3 levels?
+A4: It is company policy for high-value spend.
+1. Manager checks the "homework" (comparison logic).
+2. Finance checks the budget codes (CAPEX availability).
+3. Director signs for Internal Audit compliance.
+The bottleneck isn't the levels, but the manual "print, sign, scan, email" workflow that halts if anyone is unavailable.
+
+Q5: Why hasn't IT automated this process if it's so time-consuming?
+A5: Because IT prioritizes "Board-visible" innovations like Super Apps and Digital Ecosystems over internal operational efficiency. They dismissed the request by telling Procurement to "just use SAP," ignoring that SAP lacks the technical catalog capabilities required. There is a disconnect between IT's focus and Operations' needs.

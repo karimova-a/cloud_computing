@@ -1,0 +1,42 @@
+# Executive Summary: AI Procurement Copilot "Go/No-Go" Decision
+
+**TO:** Investment Committee, Kazakhtelecom JSC
+**FROM:** Product Strategy Team
+**DATE:** 2026-01-29
+**SUBJECT:** Business Case & Governance Review for "Procurement Agent"
+
+## 1. Recommendation: CONDITIONAL GO
+We recommend proceeding with the development of the AI Procurement Copilot, **subject to strict data residency compliance** (On-Premise/Local LLM). The financial ROI is positive based on labor efficiency alone, but the *risk avoidance* ROI (preventing costly technical errors) makes the project critical.
+
+## 2. Financial Reasoning (ROI)
+
+### A. Labor Efficiency (Conservative)
+*   **Basis:** A Procurement Specialist spends ~25% of their time (10 hours/week) on manual catalog research.
+*   **Cost of Labor:** Average specialist salary approx. 500,000 KZT/month (Gross).
+    *   Hourly Rate: ~3,125 KZT/hour.
+*   **Direct Savings:**
+    *   10 hours/week × 52 weeks = 520 hours saved/year.
+    *   520 hours × 3,125 KZT = **1,625,000 KZT per specialist/year**.
+    *   *For a team of 10 specialists:* **16.25 Million KZT/year**.
+
+### B. Error Avoidance (The Real Value)
+*   **Scenario:** A single mismatch in ordering high-capacity optical modules (e.g., ordering 10km range instead of 40km for a DWDM line) renders the equipment useless for the project.
+*   **Cost of Error:** A single high-end router line card or batch of optical transceivers can cost **5,000,000+ KZT**.
+*   **Impact:** Preventing just *three* major ordering errors annually yields a higher return than the entire labor savings.
+*   **Project Delays:** "Project-based funding" (as noted in Audit) means delays cause budget expirations. Faster procurement protects the capital execution rate.
+
+## 3. Governance & AI Ethics Check
+
+### A. Data Residency (Law No. 94-V)
+*   **Risk:** Kazakhstan law mandates personal data (names of engineers in requests) must be stored in Kazakhstan.
+*   **Security:** As a National Operator, Kazakhtelecom's network topology and specific equipment configurations may be classified as "For Official Use Only" or "Commercial Secrets."
+*   **Verdict:** Sending this data to public US-based clouds (OpenAI/Anthropic) is **Forbidden**.
+
+### B. The "Transparency" Test
+*   **Requirement:** Decisions made by AI must be explainable.
+*   **Solution:** The PRD explicitly requires the Agent to citation sources (NFR-002: "Matched based on Huawei Manual v4.2, page 312"). This allows human verification ("Human-in-the-loop"), satisfying ethical transparency requirements.
+
+## 4. Next Steps
+1.  **Approve Pilot:** Allocate budget for a Proof of Concept (PoC).
+2.  **Infrastructure:** Provision an on-premise GPU server (e.g., in Akkol Data Center) to host a Private LLM (e.g., Llama 3 or Mistral) to ensure data never leaves the corporate network.
+3.  **Data Ingestion:** Begin vectorization of "Public" vendor manuals immediately (low risk).

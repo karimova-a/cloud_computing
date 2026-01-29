@@ -1,0 +1,56 @@
+# Product Requirements Document (PRD): AI Procurement Copilot for Network Equipment
+
+**Date:** 2026-01-29
+**Status:** DRAFT
+**Author:** JTBD Agent (Antigravity)
+
+## 1. Problem Statement
+The procurement process for network equipment at Kazakhtelecom is a manual, high-friction bottleneck. Procurement specialists spend 4-8 hours per request manually cross-referencing vague engineering requirements (e.g., "10km SFP") against disparate, technical vendor catalogs (Huawei, ZTE, Nokia) provided in static PDF or web formats. Lacking deep technical domain knowledge, specialists frequent make "best guess" selections, leading to specification mismatches (shipping wrong parts), project delays, and financial waste. The existing ERP (SAP) handles financial transaction but fails to support technical discovery or comparison.
+
+## 2. The "Job to be Done" (JTBD)
+*   **Main Job:** "As a non-technical procurement specialist, I want to accurately identify and compare matching equipment from different vendors instantly, so that I can fulfill engineering requests without delays or specification errors."
+*   **Emotional Job:** "I want to feel confident that I haven't ordered the wrong voltage/wavelength so I don't get blamed by the engineers."
+*   **Functional Job:** "Translate engineering slang/jargon into precise vendor part numbers and generate a compliance matrix."
+
+## 3. User Persona
+**"Agent" - The Overwhelmed Procurement Specialist**
+*   **Context:** Sits with dual monitors, drowning in Excel files and PDF manuals.
+*   **Behavior:** manually searches disparate portals, Ctrl+F in PDFs, copy-pastes data into Excel.
+*   **Frustration:** "Engineers assume I'm a mind reader," "IT won't help us."
+
+## 4. Product Vision
+An AI-powered "Procurement Copilot" that ingests raw engineering requests, uses semantic understanding to "read" technical vendor manuals (RAG), and autonomously builds a verified comparison matrix. It acts as a universal translator between "Engineer Speak" and "Vendor Catalog Speak."
+
+## 5. Functional Requirements
+
+### 5.1 Input Processing
+*   **FR-001:** Agent must accept input files in common formats: Excel (.xlsx, .csv) and PDF definitions.
+*   **FR-002:** Agent must identify distinct line items and separate "Quantity" from "Description/Spec" (parsing vague text like "20x High-cap router 100G").
+
+### 5.2 Technical "Translation" & Retrieval (The Core Engine)
+*   **FR-003:** Agent must maintain a vector database of vendor manuals (Huawei NetEngine, Nokia SR, ZTE, etc.).
+*   **FR-004:** Agent must map generic terms (e.g., "SFP+ 10km") to specific vendor Part Numbers (SKUs) based on semantic proximity (e.g., matching "1310nm" context).
+*   **FR-005:** Agent must handle "End of Life" scenarios by identifying if a found part is obsolete and suggesting the specific successor model mentioned in vendor release notes.
+
+### 5.3 Automated Validation & Browsing
+*   **FR-006:** Agent must use a browser tool to verifying "Live" availability or list price if an online portal is accessible (optional: if credentials provided).
+*   **FR-007:** Agent must flag "Spec Mismatches" where the Vendor Spec (e.g., "40km range") differs significantly from the Request (e.g., "10km range") and warn the user.
+
+### 5.4 Output Generation
+*   **FR-008:** Agent must generate a structured "Comparison Matrix" (Excel/Markdown) with columns:
+    *   Requested Item
+    *   Huawei Match (Model # + Spec link)
+    *   Nokia Match (Model # + Spec link)
+    *   ZTE Match (Model # + Spec link)
+    *   Spec Compliance (Green/Red confidence score)
+*   **FR-009:** Agent must provide a summary of "Ambiguities" to be clarified with engineers (e.g., "Engineer requested 'Standard', did you mean 'Single-mode' or 'Multi-mode'?").
+
+## 6. Non-Functional Requirements
+*   **NFR-001 (Speed):** Processing a standard 20-line request should take < 5 minutes (vs. 4-8 hours manually).
+*   **NFR-002 (Explainability):** Every recommendation must cite the source (e.g., "Matched based on Huawei Manual v4.2, page 312").
+*   **NFR-003 (Privacy):** Engineering requirements must not be used to train public models (Local/Private LLM inference preferred).
+
+## 7. Success Metrics
+*   **Efficiency:** Reduction in time-per-request from 6 hours to <30 minutes.
+*   **Accuracy:** Reduction in "Return/Exchange" rate due to spec mismatch by 90%.
+*   **User Satisfaction:** "I don't have to guess anymore."
