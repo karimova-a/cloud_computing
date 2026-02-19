@@ -1,0 +1,21 @@
+# PRD: PacketParser Component
+
+## Overview
+We need a Python class `PacketParser` that handles the ingestion of CSV files containing network equipment requests. This component is part of the larger Procurement Copilot system.
+
+## Functional Requirements
+1.  **Input**: The class must accept a file path (string) to a CSV file.
+2.  **Output**: The `parse()` method must return a list of dictionaries, where each dictionary represents a row in the CSV.
+3.  **Error Handling**:
+    -   The method must explicitly catch `FileNotFoundError` and raise a custom `PacketParserError` with the message "Input file not found".
+    -   It must not crash the application if the file is missing.
+4.  **Validation**:
+    -   The CSV must contain a 'Quantity' column.
+    -   The 'Quantity' must be validated to be a positive integer. If invalid (e.g., negative or text), that row should be skipped and logged (print to stderr is fine for now).
+
+## Example CSV Format
+```csv
+Item,Quantity,Description
+Router,5,High-cap router
+Switch,2,Core switch
+```
