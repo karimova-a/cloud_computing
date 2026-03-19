@@ -1,0 +1,28 @@
+# Test Specifications - CFO Bot
+
+To guarantee that the calculator's math is flawlessly accurate, we will implement the following unit tests using Vitest.
+
+## 1. LLM Inference Cost Tests
+- **Test Case 1.1:** Given 1,000 MAU, 50 messages/user, 100 input tokens/message, 200 output tokens/message, using a model that costs $0.50/1M input tokens and $1.50/1M output tokens.
+  - Expected Input Tokens = 5,000,000 -> Cost = $2.50
+  - Expected Output Tokens = 10,000,000 -> Cost = $15.00
+  - Total Inference Cost = $17.50
+  - Verify that `calculateInferenceCost` returns exactly `$17.50`.
+
+## 2. Backend Compute Cost Tests
+- **Test Case 2.1:** Given 1,000 MAU, 50 messages/user, and a serverless function cost of $0.0000002 per invocation.
+  - Expected Invocations = 50,000
+  - Expected Compute Cost = $0.01
+
+## 3. Storage Cost Tests
+- **Test Case 3.1:** Given 50,000 monthly messages and 2 KB storage per message, with a database cost of $0.10/GB.
+  - Expected Storage = 100,000 KB = 0.1 GB
+  - Expected Storage Cost = $0.01
+
+## 4. Bandwidth Cost Tests
+- **Test Case 4.1:** Given 50,000 monthly messages and 1 KB bandwidth per message, with a bandwidth cost of $0.05/GB.
+  - Expected Bandwidth = 50,000 KB = 0.05 GB
+  - Expected Bandwidth Cost = $0.0025
+
+## 5. Total Cost Integration Test
+- **Test Case 5.1:** Using the inputs from tests 1-4, verify that `calculateTotalCost` returns the exact sum of all components ($17.52).

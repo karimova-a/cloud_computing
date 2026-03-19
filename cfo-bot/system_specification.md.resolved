@@ -1,0 +1,53 @@
+# System Specification Document (SSOT) - CFO Bot
+
+## 1. Overview
+The CFO Bot is a calculator agent designed to estimate the monthly cloud costs of a Chat Bot application based on usage assumptions (e.g., number of users, messages per user) and model selection. This document serves as the Single Source of Truth (SSOT).
+
+## 2. Cloud Components Supported
+The CFO Bot will estimate costs for the following generic but realistic cloud components required to run a Chat Bot:
+- **Compute (LLM Inference):** Cost per 1k input tokens and cost per 1k output tokens for different AI Models (e.g., GPT-4o-mini, Claude 3 Haiku, Gemini 1.5 Flash).
+- **Backend Compute (Serverless/Functions):** Cost per invocation and execution time to process requests.
+- **Database (Vector & Relational Storage):** Cost per GB/month for storing user context, message history, and vector embeddings.
+- **Bandwidth/Egress:** Cost per GB of data sent out to the users.
+
+## 3. Mathematical Cost Models & Pricing Logic
+The calculator will take these primary inputs from the user:
+- `U` = Number of Monthly Active Users (MAU)
+- `M` = Average messages per user per month
+- `I` = Average input tokens per message
+- `O` = Average output tokens per message
+
+### 3.1 LLM Inference Costs
+- **Total Input Tokens (Monthly):** `U * M * I`
+- **Total Output Tokens (Monthly):** `U * M * O`
+- **Inference Cost:** `(Total Input Tokens / 1000 * Input Rate) + (Total Output Tokens / 1000 * Output Rate)`
+
+### 3.2 Backend Compute Costs
+Assume each message triggers 1 serverless function invocation.
+- **Total Invocations:** `U * M`
+- **Compute Cost:** `Total Invocations * Cost per Invocation`
+
+### 3.3 Storage Costs
+Assume each message stores some text routing data and embedding vectors.
+- `S` = Average storage per message (e.g., 2 KB)
+- **Total Storage Required:** `Total Messages * S`
+- **Storage Cost:** `Total Storage in GB * Cost per GB/month`
+
+### 3.4 Bandwidth Costs
+Assume each output message payload has an average size.
+- `B` = Average bandwidth per message output (e.g., 1 KB)
+- **Total Egress:** `Total Messages * B`
+- **Bandwidth Cost:** `Total Egress in GB * Cost per GB egress`
+
+### 3.5 Total Monthly Cost
+`Total Cost = Inference Cost + Compute Cost + Storage Cost + Bandwidth Cost`
+
+## 4. Architectural Constraints
+- **Frontend Framework:** React-based UI (e.g., Vite + React) for interactive calculation updates.
+- **Hosting:** Must be deployable strictly via Google Firebase Hosting.
+- **State Management:** Local component state. No expensive backend needed for the calculator itself; calculations run entirely in the browser to reduce latency and infrastructure footprint.
+
+## 5. UI/UX Requirements
+- **Inputs Section:** Clean, slider-based or numeric inputs for MAU, messages, and model selection.
+- **Outputs Dashboard:** A responsive, interactive dashboard breaking down costs by component (Compute, DB, Network). Use visual elements like a pie chart or bar chart to represent the cost breakdown.
+- **Vibe:** Modern, professional, engaging "CFO" dashboard aesthetic. Dark mode by default, utilizing premium styling (e.g., subtle drop shadows, glassmorphism, accent colors).
